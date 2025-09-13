@@ -85,6 +85,13 @@ alias cls="clear"
 alias dcdu="docker compose down && docker compose up"
 alias dcd="docker compose down"
 
+alias sgp="git stash && git pull && git stash pop"
+sgm () {
+  git stash
+  git merge "$1"
+  git stash pop
+}
+
 # See: https://github.com/kovidgoyal/kitty/issues/4164
 alias ssh="TERM=xterm-256color ssh"
 # Alias command to update dotfiles
@@ -95,6 +102,8 @@ lfcd () {
     # `command` is needed in case `lfcd` is aliased to `lf`
     cd "$(command lf -print-last-dir "$@")"
 }
+
+
 
 zstyle ':omz:plugins:alias-finder' autoload yes
 zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
